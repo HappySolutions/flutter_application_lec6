@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  var cardList = [CardItem('https://cdn.romanspizza.co.za/images/root/v2/pizza/pizza-vegetarian-pan.png', 'Vegetable Pizza'),
+  CardItem('https://cdn.romanspizza.co.za/images/root/v2/pizza/pizza-classic-pan.png', 'Cheese Pizza'),
+  CardItem('https://cdn.icon-icons.com/icons2/236/PNG/256/FastFood_FrenchFries_26372.png', 'Box of Fries')];
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Scaffold(
@@ -32,7 +35,7 @@ void main() {
               SizedBox(
                 width: 100,
                 height: 100,
-                child: Image.network('https://cdn.romanspizza.co.za/images/root/v2/pizza/pizza-vegetarian-pan.png',
+                child: Image.network(cardList[0].imgLink,
                 fit: BoxFit.contain,),
               ),
               const SizedBox(width: 50,),
@@ -65,8 +68,7 @@ void main() {
               mainAxisAlignment: MainAxisAlignment.start, 
              children: <Widget>[
               Flexible(
-                child: Image.network('https://cdn.romanspizza.co.za/images/root/v2/pizza/pizza-classic-pan.png',
-                ),
+                child: Image.network(cardList[1].imgLink),
               ),
               const SizedBox(width: 50,),
                 const Text('Cheese Pizza', 
@@ -98,8 +100,7 @@ void main() {
               mainAxisAlignment: MainAxisAlignment.start, 
              children: <Widget>[
               Flexible(
-                child: Image.network('https://cdn.icon-icons.com/icons2/236/PNG/256/FastFood_FrenchFries_26372.png',
-                ),
+                child: Image.network(cardList[2].imgLink),
               ),
               const SizedBox(width: 50,),
                 const Text('Box of Fries', 
@@ -119,4 +120,11 @@ void main() {
         ),
         );
 }
+
+class CardItem{
+String imgLink = '';
+String itemText = '';
+CardItem(this.imgLink, this.itemText);
+}
+
 
